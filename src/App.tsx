@@ -34,7 +34,7 @@ export default function App() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4 }}
         method='GET'
-        action='http://search.pupbrained.xyz/search?q='
+        action='https://search.pupbrained.xyz/search?q='
         autoComplete='off'
       >
         <div className='h-[60px] w-[800px] flex rounded-full bg-ctp-base hover:shadow-searchbar focus-within:shadow-searchbar transition opacitye'>
