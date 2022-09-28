@@ -112,7 +112,7 @@ export default function App() {
           <div className='w-full m-3 ml-[-3px] bg-ctp-mantle rounded-2xl'>
             <div className='py-8 w-full text-center'>
               <p className='text-4xl text-ctp-subtext1 font-[800]'>
-                Good {timeOfDay}, Mars.
+                Good {timeOfDay}
               </p>
               <p className='pt-2 text-2xl text-ctp-subtext1'>
                 {moment().format('dddd, MMMM Do')}
