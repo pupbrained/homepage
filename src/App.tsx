@@ -39,7 +39,7 @@ export default function App() {
       >
         <div className='h-[60px] w-[800px] flex rounded-full bg-ctp-base hover:shadow-searchbar focus-within:shadow-searchbar transition opacitye'>
           <svg
-            className='pl-4 h-[30px] items-center bg-ctp-base fill-ctp-subtext0 flex rounded-l-full m-auto'
+            className='pl-4 h-[30px] items-center bg-ctp-base fill-ctp-subtext0 flex bg-transparent m-auto'
             focusable='false'
             viewBox='0 0 24 24'
           >
@@ -49,7 +49,7 @@ export default function App() {
             type='text'
             placeholder='Search anything...'
             name='q'
-            className='h-[60px] w-full bg-ctp-base pl-3 text-lg text-ctp-subtext0 font-sans rounded-r-full placeholder:text-ctp-subtext0 outline-none'
+            className='h-[60px] w-full bg-ctp-base pl-3 text-lg text-ctp-subtext0 font-sans placeholder:text-ctp-subtext0 outline-none'
           ></input>
           <div className='text-ctp-subtext0 text-lg w-[320px] flex items-center pl-5 mr-[-25px] gap-2'>
             <div
