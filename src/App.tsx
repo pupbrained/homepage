@@ -271,7 +271,7 @@ export default function App() {
           </div>
         ) : (
           <div className='w-full m-3 ml-[-3px] bg-ctp-mantle rounded-2xl'>
-            <div className='pt-8 pb-[38px] w-full text-center'>
+            <div className='pt-8 pb-[34px] w-full text-center'>
               <p className='text-4xl text-ctp-subtext1 font-[800]'>Todo</p>
               <form
                 onSubmit={(e) => {
@@ -321,8 +321,9 @@ export default function App() {
                     setInput(e.target.value)
                   }}
                   value={input}
-                  className='mt-5 bg-transparent text-ctp-subtext0 caret-ctp-subtext0 w-[90%] border-b-2 border-ctp-surface0 outline-none'
+                  className='mt-5 bg-transparent text-ctp-subtext0 caret-ctp-subtext0 w-[90%] border-b-2 border-ctp-surface0 outline-none placeholder:text-ctp-surface0 text-lg'
                   title='Add todo item'
+                  placeholder='Add todo item'
                 ></input>
               </form>
               <div className='w-[90%] h-[244px] mt-8 mx-auto border-4 border-ctp-surface0 rounded-xl box-border'>
