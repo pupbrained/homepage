@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useQuery } from 'react-query'
 import { motion } from 'framer-motion'
 import 'balloon-css'
@@ -25,6 +26,27 @@ export default function App() {
   )
 
   const [active, setActive] = useState(false)
+  const [input, setInput] = useState('')
+  const [todoList, setTodoList] = useState(
+    JSON.parse(localStorage.getItem('todoList')!) || [
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+      'empty',
+    ]
+  )
+
+  localStorage.setItem('todoList', JSON.stringify(todoList))
 
   return (
     <>
@@ -103,7 +125,7 @@ export default function App() {
           <div className='bg-[#1e1e2eaa] h-[276px] my-28 ml-16 mr-[80px] rounded-2xl text-7xl text-center flex items-center backdrop-blur-sm text-ctp-subtext1'>
             <div className='flex flex-col w-full'>
               <span>{moment().format('hh')}</span>
-              <span>-</span>
+              <hr className='w-[80%] border-2 border-ctp-subtext1 my-6 mx-auto' />
               <span>{moment().format('mm')}</span>
             </div>
           </div>
@@ -114,7 +136,7 @@ export default function App() {
               <p className='text-4xl text-ctp-subtext1 font-[800]'>
                 Good {timeOfDay}
               </p>
-              <p className='pt-2 text-2xl text-ctp-subtext1'>
+              <p className='mt-2 text-2xl text-ctp-subtext1'>
                 {moment().format('dddd, MMMM Do')}
               </p>
             </div>
@@ -229,8 +251,7 @@ export default function App() {
             </div>
             <a
               className='w-full flex justify-center'
-              // TODO: Actually work on todo list area
-              // onClick={() => setActive(!active)}
+              onClick={() => setActive(!active)}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -238,7 +259,7 @@ export default function App() {
                 width='20'
                 height='20'
                 className={clsx(
-                  'fill-ctp-surface0 mt-10 ml-5 cursor-pointer',
+                  'fill-ctp-surface0 mt-10 cursor-pointer',
                   active
                     ? 'transform rotate-180 duration-100'
                     : 'rotate-0 duration-100'
@@ -246,18 +267,87 @@ export default function App() {
               >
                 <path d='M0 192l512 320L0 832V192z'></path>
               </svg>
-              <svg
-                height='20'
-                width='20'
-                xmlns='http://www.w3.org/2000/svg'
-                className='fill-white'
-              >
-                <path d='M0 192l512 320L0 832V192z' />
-              </svg>
             </a>
           </div>
         ) : (
           <div className='w-full m-3 ml-[-3px] bg-ctp-mantle rounded-2xl'>
+            <div className='pt-8 pb-[38px] w-full text-center'>
+              <p className='text-4xl text-ctp-subtext1 font-[800]'>Todo</p>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+
+                  for (let i = 0; i < todoList.length; i++) {
+                    if (input == 'clear') {
+                      setTodoList([
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                        'empty',
+                      ])
+                      localStorage.setItem('todoList', JSON.stringify(todoList))
+                      break
+                    }
+
+                    if (todoList[i] == 'empty' && input != '') {
+                      setTodoList((prev: string[]) => {
+                        prev[i] = input
+                        localStorage.setItem(
+                          'todoList',
+                          JSON.stringify(todoList)
+                        )
+                        return prev
+                      })
+                      break
+                    }
+                  }
+
+                  setInput('')
+                }}
+              >
+                <input
+                  onChange={(e) => {
+                    e.preventDefault()
+                    setInput(e.target.value)
+                  }}
+                  value={input}
+                  className='mt-5 bg-transparent text-ctp-subtext0 caret-ctp-subtext0 w-[90%] border-b-2 border-ctp-surface0 outline-none'
+                  title='Add todo item'
+                ></input>
+              </form>
+              <div className='w-[90%] h-[244px] mt-8 mx-auto border-4 border-ctp-surface0 rounded-xl box-border'>
+                <div className='text-ctp-subtext1 grid grid-cols-2 text-xl columns-2 box-border'>
+                  {todoList.map((elem: string, idx: number) => (
+                    <span
+                      key={idx}
+                      className={clsx(
+                        'text-left px-2 py-[2px] list-none border-box border-ctp-surface0 overflow-scroll scrollbar-hide',
+                        !(idx % 2) ? 'border-r-2' : '',
+                        !(
+                          idx == todoList.length - 1 ||
+                          idx == todoList.length - 2
+                        )
+                          ? 'border-b-2'
+                          : '',
+                        elem?.toString() == 'empty' ? 'text-ctp-surface0' : ''
+                      )}
+                    >
+                      {elem}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
             <a
               className='w-full flex justify-center'
               onClick={() => setActive(!active)}
@@ -268,21 +358,13 @@ export default function App() {
                 width='20'
                 height='20'
                 className={clsx(
-                  'fill-ctp-surface0 mt-10 ml-5 cursor-pointer',
+                  'fill-ctp-surface0 cursor-pointer',
                   active
                     ? 'transform rotate-180 duration-100'
                     : 'rotate-0 duration-100'
                 )}
               >
                 <path d='M0 192l512 320L0 832V192z'></path>
-              </svg>
-              <svg
-                height='20'
-                width='20'
-                xmlns='http://www.w3.org/2000/svg'
-                className='fill-white'
-              >
-                <path d='M0 192l512 320L0 832V192z' />
               </svg>
             </a>
           </div>
