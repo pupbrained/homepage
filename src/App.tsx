@@ -323,7 +323,7 @@ export default function App() {
                   value={input}
                   className='mt-5 bg-transparent text-ctp-subtext0 caret-ctp-subtext0 w-[90%] border-b-2 border-ctp-surface0 outline-none placeholder:text-ctp-surface0 text-lg'
                   title='Add todo item'
-                  placeholder='Add todo item'
+                  placeholder='Add to list...'
                 ></input>
               </form>
               <div className='w-[90%] h-[244px] mt-8 mx-auto border-4 border-ctp-surface0 rounded-xl box-border'>
