@@ -13,6 +13,7 @@ specifiers:
   eslint: ^8.24.0
   framer-motion: ^7.4.0
   moment: ^2.29.4
+  no-darkreader: ^1.0.3
   postcss: ^8.4.16
   prettier: ^2.7.1
   react: ^18.2.0
@@ -40,6 +41,7 @@ devDependencies:
   eslint: 8.24.0
   framer-motion: 7.4.0_biqbaboplfbrettd7655fr4n2y
   moment: 2.29.4
+  no-darkreader: 1.0.3
   postcss: 8.4.16
   prettier: 2.7.1
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
@@ -1735,6 +1737,10 @@ packages:
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+    dev: true
+
+  /no-darkreader/1.0.3:
+    resolution: {integrity: sha512-pB5jzGQYN2Bxqh0iXPgJkTMGG7pmSB1eEG2xnpHxci6n7LovzViUzRXW/aqEnPHaH6orbA3bfniZe3xjG4EgEw==}
     dev: true
 
   /node-releases/2.0.6:

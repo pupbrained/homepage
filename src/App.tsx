@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useQuery } from 'react-query'
 import { motion } from 'framer-motion'
+import 'no-darkreader'
 import 'balloon-css'
 import moment from 'moment'
 import { useState } from 'react'
