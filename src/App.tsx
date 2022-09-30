@@ -60,21 +60,27 @@ export default function App() {
         action='https://search.pupbrained.xyz/search?q='
         autoComplete='off'
       >
-        <div className='h-[60px] w-[800px] flex rounded-full bg-ctp-base hover:shadow-searchbar focus-within:shadow-searchbar transition opacitye'>
-          <svg
-            className='pl-4 h-[30px] items-center bg-ctp-base fill-ctp-subtext0 flex bg-transparent m-auto'
-            focusable='false'
-            viewBox='0 0 24 24'
-          >
-            <path d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'></path>
-          </svg>
-          <input
-            type='text'
-            placeholder='Search anything...'
-            name='q'
-            className='h-[60px] w-full bg-ctp-base pl-3 text-lg text-ctp-subtext0 font-sans placeholder:text-ctp-subtext0 outline-none'
-          ></input>
-          <div className='text-ctp-subtext0 text-lg w-[320px] flex items-center pl-5 mr-[-25px] gap-2'>
+        <div className='h-[60px] w-[800px] flex justify-between rounded-full bg-ctp-base hover:shadow-searchbar focus-within:shadow-searchbar transition opacity'>
+          <div className='flex flex-grow'>
+            <div className='flex'>
+              <svg
+                className='pl-4 h-[30px] items-center bg-ctp-base fill-ctp-subtext0 flex bg-transparent m-auto'
+                focusable='false'
+                viewBox='0 0 24 24'
+              >
+                <path d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'></path>
+              </svg>
+            </div>
+            <div className='flex flex-grow'>
+              <input
+                type='text'
+                placeholder='Search anything...'
+                name='q'
+                className='h-[60px] flex-grow bg-ctp-base pl-3 text-lg text-ctp-subtext0 font-sans placeholder:text-ctp-subtext0 outline-none'
+              ></input>
+            </div>
+          </div>
+          <div className='text-ctp-subtext0 text-lg flex items-center pl-4 pr-4 gap-2'>
             <div
               aria-label={
                 isLoading
@@ -98,7 +104,7 @@ export default function App() {
                   data[1].temp.toString().substring(0, 2) +
                   '°F)'}
             </div>
-            <div className='ml-[-5px]'>
+            <div>
               {isLoading ? (
                 <></>
               ) : (
