@@ -277,7 +277,7 @@ export default function App() {
             </a>
           </div>
         ) : (
-          <div className='w-full m-2 ml-[-3px] bg-ctp-mantle rounded-2xl'>
+          <div className='w-full m-3 ml-[-3px] bg-ctp-mantle rounded-2xl'>
             <div className='pt-8 pb-[34px] w-full text-center'>
               <p className='text-4xl text-ctp-subtext1 font-[800]'>Todo</p>
               <form
