@@ -11,3 +11,8 @@
   font-family: 'Hack Nerd Font';
   src: url('/src/assets/fonts/hack.ttf');
 }
+
+@font-face {
+  font-family: 'Google Sans Text';
+  src: url('/src/assets/fonts/gsans.ttf');
+}
