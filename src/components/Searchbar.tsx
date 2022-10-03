@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useQuery } from "react-query";
+import { motion } from 'framer-motion'
+import { useQuery } from 'react-query'
 import 'balloon-css'
 
 export default function Searchbar() {
@@ -16,6 +16,7 @@ export default function Searchbar() {
       method='GET'
       action='https://search.pupbrained.xyz/search?q='
       autoComplete='off'
+      className='font-gsans'
     >
       <div className='h-[60px] w-[800px] flex justify-between rounded-full bg-ctp-base hover:shadow-searchbar focus-within:shadow-searchbar transition opacity'>
         <div className='flex flex-grow'>
@@ -45,10 +46,10 @@ export default function Searchbar() {
                 : `Feels like: ${data[1].feels_like
                   .toString()
                   .substring(0, 2)}°F - L/H: ${data[1].temp_min
-                    .toString()
-                    .substring(0, 2)}°F / ${data[1].temp_max
-                      .toString()
-                      .substring(0, 2)}°F`
+                  .toString()
+                  .substring(0, 2)}°F / ${data[1].temp_max
+                  .toString()
+                  .substring(0, 2)}°F`
             }
             data-balloon-pos='up'
             className='!cursor-default [--balloon-color:rgb(24,24,37)] [--balloon-border-radius:25px] [--balloon-font-size:16px] select-none'
@@ -56,10 +57,10 @@ export default function Searchbar() {
             {isLoading
               ? 'Loading...'
               : data[0].description.charAt(0).toUpperCase() +
-              data[0].description.slice(1) +
-              ' (' +
-              data[1].temp.toString().substring(0, 2) +
-              '°F)'}
+                data[0].description.slice(1) +
+                ' (' +
+                data[1].temp.toString().substring(0, 2) +
+                '°F)'}
           </div>
           <div>
             {isLoading ? (
