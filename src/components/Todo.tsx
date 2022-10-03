@@ -111,7 +111,7 @@ export default function Todo(props: {
                 >
                   <span
                     className={clsx(
-                      'w-[80%] overflow-scroll',
+                      'w-[80%] overflow-x-scroll whitespace-nowrap',
                       elem.crossed ? 'line-through' : ''
                     )}
                   >
