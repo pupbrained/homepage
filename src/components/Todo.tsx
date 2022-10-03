@@ -144,7 +144,7 @@ export default function Todo(props: {
                         e.preventDefault()
 
                         const list = [...todoList]
-                        list.shift()
+                        list.splice(idx, 1)
                         list.push({ val: 'empty', crossed: false })
 
                         setTodoList(list)
