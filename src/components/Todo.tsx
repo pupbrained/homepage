@@ -1,10 +1,12 @@
 import clsx from 'clsx'
-import { useEffect, useState } from 'react'
+import 'balloon-css'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Todo(props: {
   active: boolean
   setActive: React.Dispatch<React.SetStateAction<boolean>>
 }) {
+  const myRef = useRef<HTMLDivElement>(null)
   const [input, setInput] = useState('')
   const [todoList, setTodoList] = useState<
     Array<{ val: string; crossed: boolean }>
@@ -58,7 +60,7 @@ export default function Todo(props: {
             title='Add todo item'
             placeholder='Add to list...'
           ></input>
-          <span className='border-b-2 border-ctp-surface0 text-lg text-ctp-surface0 pb-[3px] cursor-pointer font-hack '>
+          <span className='border-b-2 border-ctp-surface0 text-lg text-ctp-surface0 pb-[3px] cursor-pointer font-hack'>
             <a
               onClick={(e) => {
                 e.preventDefault()
@@ -109,14 +111,21 @@ export default function Todo(props: {
                     elem.val === 'empty' ? 'text-ctp-surface0' : ''
                   )}
                 >
-                  <span
-                    className={clsx(
-                      'w-[80%] overflow-x-scroll whitespace-nowrap',
-                      elem.crossed ? 'line-through' : ''
-                    )}
+                  <div
+                    aria-label={elem.val === 'empty' ? '' : elem.val}
+                    className='[--balloon-border-radius:25px] [--balloon-font-size:16px] [--balloon-color:rgb(24,24,37)] w-[80%]'
+                    data-balloon-pos={elem.val === 'empty' ? null : 'up'}
+                    ref={myRef}
                   >
-                    {elem.val}
-                  </span>
+                    <div
+                      className={clsx(
+                        'w-full whitespace-nowrap overflow-ellipsis overflow-x-hidden !cursor-default select-none',
+                        elem.crossed ? 'line-through' : ''
+                      )}
+                    >
+                      {elem.val}
+                    </div>
+                  </div>
                   <span
                     className={clsx(
                       'w-[20%] text-right font-jetbrains text-ctp-surface2',
