@@ -9,6 +9,7 @@ module.exports = {
         gsans: ['Google Sans Text'],
         hack: ['Hack Nerd Font'],
         jetbrains: ['JetBrainsMono Nerd Font'],
+        iosevka: ['Iosevka Custom Medium'],
       },
       boxShadow: {
         searchbar: '0px 0px 5px 2px rgba(49, 50, 68,0.8)',

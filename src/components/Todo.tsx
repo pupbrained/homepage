@@ -1,12 +1,12 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import clsx from 'clsx'
 import 'balloon-css'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Todo(props: {
   active: boolean
   setActive: React.Dispatch<React.SetStateAction<boolean>>
 }) {
-  const myRef = useRef<HTMLDivElement>(null)
   const [input, setInput] = useState('')
   const [todoList, setTodoList] = useState<
     Array<{ val: string; crossed: boolean }>
@@ -15,7 +15,7 @@ export default function Todo(props: {
 
     const finalList =
       list == null
-        ? Array(14).fill({ val: 'empty', crossed: false })
+        ? Array(7).fill({ val: 'empty', crossed: false })
         : JSON.parse(list)
 
     return finalList
@@ -35,7 +35,7 @@ export default function Todo(props: {
 
             for (let i = 0; i < todoList.length; i++) {
               if (input == 'clear') {
-                setTodoList(Array(14).fill({ val: 'empty', crossed: false }))
+                setTodoList(Array(7).fill({ val: 'empty', crossed: false }))
                 break
               }
 
@@ -49,6 +49,7 @@ export default function Todo(props: {
 
             setInput('')
           }}
+          className='border-b-2 border-ctp-surface0 w-[90%] mx-auto'
         >
           <input
             onChange={(e) => {
@@ -56,11 +57,11 @@ export default function Todo(props: {
               setInput(e.target.value)
             }}
             value={input}
-            className='mt-5 bg-transparent text-ctp-subtext0 caret-ctp-subtext0 w-[81%] border-b-2 border-ctp-surface0 outline-none placeholder:text-ctp-surface0 text-lg'
+            className='mt-5 bg-transparent text-ctp-subtext0 caret-ctp-subtext0 w-[90%] outline-none placeholder:text-ctp-surface0 text-lg'
             title='Add todo item'
             placeholder='Add to list...'
           ></input>
-          <span className='border-b-2 border-ctp-surface0 text-lg text-ctp-surface0 pb-[3px] cursor-pointer font-hack'>
+          <span className='text-lg text-ctp-surface0 pb-[3px] font-hack'>
             <a
               onClick={(e) => {
                 e.preventDefault()
@@ -74,7 +75,7 @@ export default function Todo(props: {
 
                 setTodoList(list)
               }}
-              className='hover:text-ctp-subtext1 transition'
+              className='hover:text-ctp-subtext1 transition cursor-pointer'
             >
               
             </a>
@@ -90,32 +91,28 @@ export default function Todo(props: {
 
                 setTodoList(list)
               }}
-              className='hover:text-ctp-subtext1 transition'
+              className='hover:text-ctp-subtext1 transition cursor-pointer'
             >
               
             </a>
           </span>
         </form>
         <div className='w-[90%] h-[244px] mt-8 mx-auto border-4 border-ctp-surface0 rounded-xl box-border'>
-          <div className='text-ctp-subtext1 grid grid-cols-2 text-xl columns-2 box-border'>
+          <div className='text-ctp-subtext1 grid text-xl columns-2 box-border'>
             {todoList?.map(
               (elem: { val: string; crossed: boolean }, idx: number) => (
                 <div
                   key={idx}
                   className={clsx(
                     'text-left px-2 py-[2px] list-none border-box border-ctp-surface0 flex justify-between',
-                    !(idx % 2) ? 'border-r-2' : '',
-                    !(idx == todoList.length - 1 || idx == todoList.length - 2)
-                      ? 'border-b-2'
-                      : '',
+                    !(idx == todoList.length - 1) ? 'border-b-2' : '',
                     elem.val === 'empty' ? 'text-ctp-surface0' : ''
                   )}
                 >
                   <div
                     aria-label={elem.val === 'empty' ? '' : elem.val}
                     className='[--balloon-border-radius:25px] [--balloon-font-size:16px] [--balloon-color:rgb(24,24,37)] w-[80%]'
-                    data-balloon-pos={elem.val === 'empty' ? null : 'up'}
-                    ref={myRef}
+                    data-balloon-pos={elem.val.length > 30 ? 'up' : null}
                   >
                     <div
                       className={clsx(
@@ -128,7 +125,7 @@ export default function Todo(props: {
                   </div>
                   <span
                     className={clsx(
-                      'w-[20%] text-right font-jetbrains text-ctp-surface2',
+                      'w-[10%] text-right font-hack text-ctp-surface2 -mt-0.5 -mr-1 gap-x-1 flex',
                       elem.val === 'empty' ? 'hidden' : ''
                     )}
                   >
@@ -147,7 +144,6 @@ export default function Todo(props: {
                     >
                       
                     </a>
-                    &nbsp;
                     <a
                       onClick={(e) => {
                         e.preventDefault()
