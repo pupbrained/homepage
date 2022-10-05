@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import clsx from 'clsx'
-import 'balloon-css'
 import { useEffect, useState } from 'react'
 
 export default function Todo(props: {
@@ -104,24 +103,18 @@ export default function Todo(props: {
                 <div
                   key={idx}
                   className={clsx(
-                    'text-left px-2 py-[2px] list-none border-box border-ctp-surface0 flex justify-between',
+                    'text-left px-2 py-[2px] border-box border-ctp-surface0 flex justify-between overflow-x-hidden',
                     !(idx == todoList.length - 1) ? 'border-b-2' : '',
                     elem.val === 'empty' ? 'text-ctp-surface0' : ''
                   )}
                 >
                   <div
-                    aria-label={elem.val === 'empty' ? '' : elem.val}
-                    className='[--balloon-border-radius:25px] [--balloon-font-size:16px] [--balloon-color:rgb(24,24,37)] w-[80%]'
-                    data-balloon-pos={elem.val.length > 30 ? 'up' : null}
+                    className={clsx(
+                      'w-full whitespace-nowrap overflow-ellipsis overflow-x-hidden !cursor-default select-none',
+                      elem.crossed ? 'line-through' : ''
+                    )}
                   >
-                    <div
-                      className={clsx(
-                        'w-full whitespace-nowrap overflow-ellipsis overflow-x-hidden !cursor-default select-none',
-                        elem.crossed ? 'line-through' : ''
-                      )}
-                    >
-                      {elem.val}
-                    </div>
+                    {elem.val}
                   </div>
                   <span
                     className={clsx(
