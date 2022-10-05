@@ -110,7 +110,7 @@ export default function Todo(props: {
                 >
                   <div
                     className={clsx(
-                      'w-full whitespace-nowrap overflow-ellipsis overflow-x-hidden !cursor-default select-none',
+                      'w-full truncate !cursor-default select-none',
                       elem.crossed ? 'line-through' : ''
                     )}
                   >
