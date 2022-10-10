@@ -34,7 +34,12 @@ export default function Todo(props: {
 
             for (let i = 0; i < todoList.length; i++) {
               if (input == 'clear') {
-                setTodoList(Array(7).fill({ val: 'empty', crossed: false }))
+                setTodoList(
+                  Array(7).fill({
+                    val: 'empty',
+                    crossed: false,
+                  })
+                )
                 break
               }
 
@@ -143,7 +148,10 @@ export default function Todo(props: {
 
                         const list = [...todoList]
                         list.splice(idx, 1)
-                        list.push({ val: 'empty', crossed: false })
+                        list.push({
+                          val: 'empty',
+                          crossed: false,
+                        })
 
                         setTodoList(list)
                       }}
