@@ -171,7 +171,6 @@ export default function Todo(props: {
         onClick={() => props.setActive(!props.active)}
       >
         <svg
-          xmlns='http://www.w3.org/2000/svg'
           viewBox='0 192 512 640'
           width='20'
           height='20'
