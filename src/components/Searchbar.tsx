@@ -46,10 +46,10 @@ export default function Searchbar() {
                 : `Feels like: ${data[1].feels_like
                   .toString()
                   .substring(0, 2)}°F - L/H: ${data[1].temp_min
-                  .toString()
-                  .substring(0, 2)}°F / ${data[1].temp_max
-                  .toString()
-                  .substring(0, 2)}°F`
+                    .toString()
+                    .substring(0, 2)}°F / ${data[1].temp_max
+                      .toString()
+                      .substring(0, 2)}°F`
             }
             data-balloon-pos='up'
             className='!cursor-default [--balloon-color:rgb(24,24,37)] [--balloon-border-radius:25px] [--balloon-font-size:16px] select-none'
@@ -57,10 +57,10 @@ export default function Searchbar() {
             {isLoading
               ? 'Loading...'
               : data[0].description.charAt(0).toUpperCase() +
-                data[0].description.slice(1) +
-                ' (' +
-                data[1].temp.toString().substring(0, 2) +
-                '°F)'}
+              data[0].description.slice(1) +
+              ' (' +
+              data[1].temp.toString().substring(0, 2) +
+              '°F)'}
           </div>
           <div>
             {isLoading ? (
@@ -69,7 +69,7 @@ export default function Searchbar() {
               <img
                 className='h-[40px]'
                 title='Weather icon'
-                src={`http://openweathermap.org/img/wn/${data[0].icon}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${data[0].icon}@2x.png`}
               ></img>
             )}
           </div>
