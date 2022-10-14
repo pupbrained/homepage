@@ -14,7 +14,7 @@ export default function Searchbar() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
       method='GET'
-      action='https://search.pupbrained.xyz/search?q='
+      action='https://duckduckgo.com/?q='
       autoComplete='off'
       className='font-gsans'
     >
