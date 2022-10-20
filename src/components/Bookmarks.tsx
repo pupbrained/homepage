@@ -36,7 +36,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://twitter.com'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Twitter
             </a>
@@ -44,7 +44,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://mk.pupbrained.xyz'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Misskey
             </a>
@@ -52,7 +52,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://youtube.com'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Youtube
             </a>
@@ -60,7 +60,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://twitch.tv'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Twitch
             </a>
@@ -70,7 +70,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://github.com'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Github
             </a>
@@ -78,7 +78,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://reddit.com/r/unixporn'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Reddit
             </a>
@@ -86,7 +86,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://vercel.com'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Vercel
             </a>
@@ -94,7 +94,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://tailwindcss.com'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Tailwind
             </a>
@@ -104,7 +104,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://classroom.google.com'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Classroom
             </a>
@@ -112,7 +112,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://moneyskill.org'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               MoneySkill
             </a>
@@ -120,7 +120,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://replit.com'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               Replit
             </a>
@@ -128,7 +128,7 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
           <li>
             <a
               href='https://freecodecamp.org'
-              className='transform hover:text-xl duration-75'
+              className='transform double-1 hover:double-1-hover duration-75'
             >
               FreeCodeCamp
             </a>
@@ -155,6 +155,5 @@ export default function Bookmarks(props: { active: boolean, setActive: React.Dis
         </svg>
       </a>
     </div>
-
   )
 }
